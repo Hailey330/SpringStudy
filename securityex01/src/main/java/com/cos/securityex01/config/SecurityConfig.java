@@ -1,20 +1,28 @@
 package com.cos.securityex01.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration // IoC에 Bean(빈) 을 등록
 @EnableWebSecurity // // 필터 체인 관리할 수 있는 어노테이션
 @EnableGlobalMethodSecurity(prePostEnabled = true) // 특정 주소 접근시 권한 및 인증을 미리 체크함 (Controller 접근 전에 낚아서 처리)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	@Bean // IoC 등록 - 메소드를 IoC → 리턴 타입이 있어야 함
+	public BCryptPasswordEncoder encodePwd() {
+		return new BCryptPasswordEncoder(); 
+	}
+	
    // 해당 주소만 잠그고 나머지 다 열어 놓음
    @Override
    protected void configure(HttpSecurity http) throws Exception {
-      http.authorizeRequests()
+	   http.csrf().disable(); // 내가 form 태그를 생성해서 보내기 때문에 비활성화
+	   http.authorizeRequests()
          .antMatchers("/user/**","/admin/**")
          .authenticated()
          .anyRequest()
