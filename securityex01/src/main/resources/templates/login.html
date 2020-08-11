@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 페이지</title>
+</head>
+<body>
+<h1>로그인 페이지</h1>
+<hr/>
+<!-- security는 x-www-form-url-encoded 타입만 인식함! -->
+<form action="/loginProc" method="post">
+	<input type="text" name="username" />
+	<input type="password" name="password" />
+	<button>로그인</button>
+</form>
+
+<br />
+	<h1>Social Login</h1>
+	<br />
+	<a href="/oauth2/authorization/google"> 
+	<img src="https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png?hl=ko" alt="google" width="220px">
+	</a>
+	<br />
+	<a href="/oauth2/authorization/facebook"> 
+	<img src="https://scontent-gmp1-1.xx.fbcdn.net/v/t39.2365-6/17639236_1785253958471956_282550797298827264_n.png?_nc_cat=105&_nc_sid=ad8a9d&_nc_ohc=UEdYRR5TCXMAX-to4cs&_nc_ht=scontent-gmp1-1.xx&oh=8714d7ddeb43e745572fcb2abc8c205f&oe=5F4DA296" alt="facebook" width="220px">
+	</a>
+	<br />
+	<a href="/oauth2/authorization/twitter"> 
+	<img src="https://cdn.cms-twdigitalassets.com/content/dam/developer-twitter/icons/sign-in-with-twitter-gray-png-img-fullhd-medium.png.img.fullhd.medium.png" alt="twitter" width="220px">
+	</a>
+	<br />
+	<a href="/oauth2/authorization/naver"> 
+	<img src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png" alt="naver" width="220px">
+	</a>
+	<br />
+	<a href="/oauth2/authorization/kakao"> 
+	<img src="https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_narrow.png" alt="kakao" width="220px">
+	</a>
+</body>
+</html>
