@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+   url: jdbc:mysql://localhost:3306/brunch?serverTimezone=Asia/Seoul
+   username: brunch
+   password: bitc5600
+   driver-class-name: com.mysql.cj.jdbc.Driver 
+     jpa:
+    hibernate:
+      ddl-auto: create #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #내가 적은 그대로 테이블 속성명으로 넣어줌 
+    show-sql: true
